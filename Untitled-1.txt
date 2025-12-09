@@ -99,7 +99,7 @@
     ];
 
     const players = [
-        { name: "Shubman Gill", country: "India", role: "Batsman" },
+        { name: "Shubman Gill77", country: "India", role: "Batsman" },
         { name: "Virat Kohli", country: "India", role: "Batsman" },
         { name: "Jasprit Bumrah", country: "India", role: "Bowler" },
         { name: "Glenn Maxwell", country: "Australia", role: "All-Rounder" }
