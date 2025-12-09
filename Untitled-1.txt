@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cricket Info App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f3f7ff;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #1e3a8a;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .section {
+            margin-top: 20px;
+        }
+        .title {
+            font-size: 22px;
+            font-weight: bold;
+            color: #2563eb;
+            margin-bottom: 10px;
+        }
+        .card {
+            background: #e0e7ff;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+        .score {
+            font-size: 20px;
+            font-weight: bold;
+            color: #dc2626;
+        }
+        button {
+            padding: 8px 15px;
+            border: none;
+            border-radius: 5px;
+            background: #2563eb;
+            color: white;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        button:hover {
+            background: #1e40af;
+        }
+    </style>
+</head>
+<body>
+
+<h1>🏏 Cricket Score & Info App</h1>
+<div class="container">
+
+    <!-- LIVE SCORE SECTION -->
+    <div class="section">
+        <div class="title">Live Match Score</div>
+        <div class="card">
+            <div id="score" class="score">Tap the button to show score</div>
+            <button onclick="showScore()">Show Live Score</button>
+        </div>
+    </div>
+
+    <!-- MATCHES SECTION -->
+    <div class="section">
+        <div class="title">Upcoming Matches</div>
+        <div id="matches"></div>
+    </div>
+
+    <!-- PLAYERS SECTION -->
+    <div class="section">
+        <div class="title">Top Players</div>
+        <div id="players"></div>
+    </div>
+
+    <!-- VENUES SECTION -->
+    <div class="section">
+        <div class="title">Stadium Venues</div>
+        <div id="venues"></div>
+    </div>
+
+</div>
+
+<script>
+    const matches = [
+        { team1: "India", team2: "Australia", date: "2025-12-20", venue: "Wankhede Stadium" },
+        { team1: "England", team2: "South Africa", date: "2025-12-22", venue: "Lord's London" },
+        { team1: "Sri Lanka", team2: "Pakistan", date: "2025-12-25", venue: "Galle International Stadium" }
+    ];
+
+    const players = [
+        { name: "Shubman Gill", country: "India", role: "Batsman" },
+        { name: "Virat Kohli", country: "India", role: "Batsman" },
+        { name: "Jasprit Bumrah", country: "India", role: "Bowler" },
+        { name: "Glenn Maxwell", country: "Australia", role: "All-Rounder" }
+    ];
+
+    const venues = [
+        "Wankhede Stadium, Mumbai",
+        "Eden Gardens, Kolkata",
+        "Melbourne Cricket Ground",
+        "Lord's, London",
+        "Dubai International Stadium"
+    ];
+
+    function loadMatches() {
+        let html = "";
+        matches.forEach(m => {
+            html += `<div class='card'>
+                        <b>${m.team1} vs ${m.team2}</b><br>
+                        Date: ${m.date}<br>
+                        Venue: ${m.venue}
+                    </div>`;
+        });
+        document.getElementById("matches").innerHTML = html;
+    }
+
+    function loadPlayers() {
+        let html = "";
+        players.forEach(p => {
+            html += `<div class='card'>
+                        <b>${p.name}</b><br>
+                        Country: ${p.country}<br>
+                        Role: ${p.role}
+                    </div>`;
+        });
+        document.getElementById("players").innerHTML = html;
+    }
+
+    function loadVenues() {
+        let html = "";
+        venues.forEach(v => {
+            html += `<div class='card'>${v}</div>`;
+        });
+        document.getElementById("venues").innerHTML = html;
+    }
+
+    function showScore() {
+        document.getElementById("score").innerText = "India 178/3 (18.2 overs)";
+    }
+
+    // Load everything on start
+    loadMatches();
+    loadPlayers();
+    loadVenues();
+</script>
+
+</body>
+</html>
